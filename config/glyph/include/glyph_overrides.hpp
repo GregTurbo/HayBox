@@ -10,8 +10,8 @@
 #include <Wire.h>
 #include <config.pb.h>
 
-#define LED_PIN 7
-#define LED_COUNT 72
+#define LED_PIN 11
+#define LED_COUNT 76
 
 // clang-format off
 
@@ -65,7 +65,7 @@ const Config default_config = {
                 SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_NEUTRAL },
                 SocdPair { .button_dir1 = BTN_LT1, .button_dir2 = BTN_RT4, .socd_type = SOCD_NEUTRAL },
             },
-            .rgb_config = 1,
+            .rgb_config = 4,
             .layout_plate = LAYOUT_PLATE_SPLIT_FGC,
         },
         GameModeConfig {
@@ -75,17 +75,17 @@ const Config default_config = {
                 SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_NEUTRAL },
                 SocdPair { .button_dir1 = BTN_LT1, .button_dir2 = BTN_RT4, .socd_type = SOCD_NEUTRAL },
             },
-            .button_remapping_count = 28,
+            .button_remapping_count = 29,
             .button_remapping = {
                 // Right hand bottom row
-                ButtonRemap { .physical_button = BTN_RF9,  .activates = BTN_RF1 },
-                ButtonRemap { .physical_button = BTN_RF10, .activates = BTN_RF2 },
-                ButtonRemap { .physical_button = BTN_RF11, .activates = BTN_RF3 },
+                ButtonRemap { .physical_button = BTN_RF11, .activates = BTN_RF2 },
+                ButtonRemap { .physical_button = BTN_RF12, .activates = BTN_RF3 },
                 ButtonRemap { .physical_button = BTN_RF1,  .activates = BTN_RF4 },
+                ButtonRemap { .physical_button = BTN_RF10,  .activates = BTN_RF1 },
                 // Right hand top row
-                ButtonRemap { .physical_button = BTN_RF12, .activates = BTN_RF5 },
-                ButtonRemap { .physical_button = BTN_RF13, .activates = BTN_RF6 },
-                ButtonRemap { .physical_button = BTN_RF14, .activates = BTN_RF7 },
+                ButtonRemap { .physical_button = BTN_RF13, .activates = BTN_RF5 },
+                ButtonRemap { .physical_button = BTN_RF14, .activates = BTN_RF6 },
+                ButtonRemap { .physical_button = BTN_RF15, .activates = BTN_RF7 },
                 ButtonRemap { .physical_button = BTN_RF5,  .activates = BTN_RF8 },
                 // Left hand row
                 ButtonRemap { .physical_button = BTN_LF8,  .activates = BTN_LF1 },
@@ -97,8 +97,12 @@ const Config default_config = {
                 ButtonRemap { .physical_button = BTN_MB3,  .activates = BTN_RT3 },
                 ButtonRemap { .physical_button = BTN_MB4,  .activates = BTN_RT2 },
                 ButtonRemap { .physical_button = BTN_MB2,  .activates = BTN_MB1 },
+
+                //new button
+                ButtonRemap { .physical_button = BTN_RF16, .activates = BTN_RF9 },
                 
                 // Unmap the old buttons
+                ButtonRemap { .physical_button = BTN_RF9, .activates = BTN_UNSPECIFIED },
                 ButtonRemap { .physical_button = BTN_RF2,  .activates = BTN_UNSPECIFIED },
                 ButtonRemap { .physical_button = BTN_RF3,  .activates = BTN_UNSPECIFIED },
                 ButtonRemap { .physical_button = BTN_RF4,  .activates = BTN_UNSPECIFIED },
@@ -114,7 +118,7 @@ const Config default_config = {
                 ButtonRemap { .physical_button = BTN_MB1,  .activates = BTN_UNSPECIFIED },
             },
             .activation_binding_count = 3,
-            .rgb_config = 2,
+            .rgb_config = 3,
             .layout_plate = LAYOUT_PLATE_FGC,
         },
         GameModeConfig {
@@ -204,11 +208,12 @@ const Config default_config = {
             },
         },
     },
-    .rgb_configs_count = 2,
+    .rgb_configs_count = 4,
     .rgb_configs = {
         RgbConfig {
-            .button_colors_count = 19,
+            .button_colors_count = 20,
             .button_colors = {
+                { BTN_MB1, 0x0000ff },
                 { BTN_LF1, 0x0000ff },
                 { BTN_LF2, 0x0000ff },
                 { BTN_LF3, 0x0000ff },
@@ -231,20 +236,84 @@ const Config default_config = {
             },
         },
         RgbConfig {
-            .button_colors_count = 12,
+            .button_colors_count = 36,
             .button_colors = {
+                {   BTN_MB1, 0xFFFF00 },
+                {   BTN_LF4, 0xFFFF00 },
+                {   BTN_LF3, 0xFFFF00 },
+                {   BTN_LF5, 0xFFFF00 },
+                {   BTN_LF2, 0xFFFF00 },
+                {   BTN_LF1, 0xFFFF00 },
+                {   BTN_LF6, 0xFFFF00 },
+                {   BTN_LF7, 0xFFFF00 },
+                {   BTN_LF8, 0xFFFF00 },
+                {   BTN_RF12, 0xFFFF00 },
+                {   BTN_RF13, 0xFFFF00 },
+                {   BTN_RF14, 0xFFFF00 },
+                {   BTN_RF5, 0xFFFF00 },
+                {   BTN_RF6, 0xFFFF00 },
+                {   BTN_RF7, 0xFFFF00 },
+                {   BTN_RF8, 0xFFFF00 },
+                {   BTN_RF4, 0xFFFF00 },
+                {   BTN_RF3, 0xFFFF00 },
+                {   BTN_RF2, 0xFFFF00 },
+                {   BTN_RF1, 0xFFFF00 },
+                {   BTN_RF11, 0xFFFF00 },
+                {   BTN_RF16, 0xFFFF00 },
+                {   BTN_RF15, 0xFFFF00 },
+                {   BTN_RF10, 0xFFFF00 },
+                {   BTN_RF9, 0xFFFF00 },
+                {   BTN_RT3, 0xFFFF00 },
+                {   BTN_RT4, 0xFFFF00 },
+                {   BTN_RT5, 0xFFFF00 },
+                {   BTN_RT1, 0xFFFF00 },
+                {   BTN_RT2, 0xFFFF00 },
+                {   BTN_LT6, 0xFFFF00 },
+                {   BTN_LT3, 0xFFFF00 },
+                {   BTN_LT4, 0xFFFF00 },
+                {   BTN_LT5, 0xFFFF00 },
+                {   BTN_LT1, 0xFFFF00 },
+                {   BTN_LT2, 0xFFFF00 },
+            },
+        },
+        RgbConfig {
+            .button_colors_count = 14,
+            .button_colors = {
+                { BTN_MB1,  0xff0000 },
                 { BTN_LF6,  0xff0000 },
                 { BTN_LF7,  0xff0000 },
                 { BTN_LF8,  0xff0000 },
                 { BTN_LT6,  0xff0000 },
-                { BTN_RF9,  0xff0000 },
+                { BTN_RF16,  0xff0000 },
                 { BTN_RF10, 0xff0000 },
                 { BTN_RF11, 0xff0000 },
                 { BTN_RF1,  0xff0000 },
                 { BTN_RF12, 0xff0000 },
                 { BTN_RF13, 0xff0000 },
                 { BTN_RF14, 0xff0000 },
+                { BTN_RF15, 0xff0000 },
                 { BTN_RF5,  0xff0000 },
+            },
+        },
+        RgbConfig {
+            .button_colors_count = 16,
+            .button_colors = {
+                {   BTN_MB1, 0xFFFF00 },
+                {   BTN_LF3, 0xFFFF00 },
+                {   BTN_LF5, 0xFFFF00 },
+                {   BTN_LF2, 0xFFFF00 },
+                {   BTN_LF1, 0xFFFF00 },
+                {   BTN_RF5, 0xFFFF00 },
+                {   BTN_RF6, 0xFFFF00 },
+                {   BTN_RF7, 0xFFFF00 },
+                {   BTN_RF8, 0xFFFF00 },
+                {   BTN_RF4, 0xFFFF00 },
+                {   BTN_RF3, 0xFFFF00 },
+                {   BTN_RF2, 0xFFFF00 },
+                {   BTN_RF9, 0xFFFF00 },
+                {   BTN_RF1, 0xFFFF00 },
+                {   BTN_RT1, 0xFFFF00 },
+                {   BTN_LT1, 0xFFFF00 },
             },
         },
     },
@@ -264,8 +333,8 @@ const Button pixel_to_button_mappings[LED_COUNT] = {
     BTN_LF7, BTN_LF7,
     BTN_LF8, BTN_LF8,
     BTN_RF12, BTN_RF12,
-    BTN_RF13, BTN_RF13,
     BTN_RF14, BTN_RF14,
+    BTN_RF15, BTN_RF15,
     BTN_RF5, BTN_RF5,
     BTN_RF6, BTN_RF6,
     BTN_RF7, BTN_RF7,
@@ -273,10 +342,12 @@ const Button pixel_to_button_mappings[LED_COUNT] = {
     BTN_RF4, BTN_RF4,
     BTN_RF3, BTN_RF3,
     BTN_RF2, BTN_RF2,
+    BTN_RF9, BTN_RF9,
     BTN_RF1, BTN_RF1,
+    BTN_RF13, BTN_RF13,
+    BTN_RF16, BTN_RF16,
     BTN_RF11, BTN_RF11,
     BTN_RF10, BTN_RF10,
-    BTN_RF9, BTN_RF9,
     BTN_RT3, BTN_RT3,
     BTN_RT4, BTN_RT4,
     BTN_RT5, BTN_RT5,

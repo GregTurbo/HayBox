@@ -65,6 +65,13 @@ const Config default_config = {
                 SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_NEUTRAL },
                 SocdPair { .button_dir1 = BTN_LT1, .button_dir2 = BTN_RT4, .socd_type = SOCD_NEUTRAL },
             },
+            .button_remapping_count = 4,
+            .button_remapping = {
+                ButtonRemap { .physical_button = BTN_MB3,  .activates = BTN_RT3 },
+                ButtonRemap { .physical_button = BTN_MB4,  .activates = BTN_RT2 },
+                ButtonRemap { .physical_button = BTN_MB2,  .activates = BTN_MB1 },
+                ButtonRemap { .physical_button = BTN_MB1,  .activates = BTN_UNSPECIFIED },
+            },
             .rgb_config = 4,
             .layout_plate = LAYOUT_PLATE_SPLIT_FGC,
         },
@@ -75,22 +82,22 @@ const Config default_config = {
                 SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_NEUTRAL },
                 SocdPair { .button_dir1 = BTN_LT1, .button_dir2 = BTN_RT4, .socd_type = SOCD_NEUTRAL },
             },
-            .button_remapping_count = 29,
+            .button_remapping_count = 30,
             .button_remapping = {
                 // Right hand bottom row
+                ButtonRemap { .physical_button = BTN_RF10, .activates = BTN_RF1 },
                 ButtonRemap { .physical_button = BTN_RF11, .activates = BTN_RF2 },
                 ButtonRemap { .physical_button = BTN_RF12, .activates = BTN_RF3 },
                 ButtonRemap { .physical_button = BTN_RF1,  .activates = BTN_RF4 },
-                ButtonRemap { .physical_button = BTN_RF10,  .activates = BTN_RF1 },
                 // Right hand top row
                 ButtonRemap { .physical_button = BTN_RF13, .activates = BTN_RF5 },
                 ButtonRemap { .physical_button = BTN_RF14, .activates = BTN_RF6 },
                 ButtonRemap { .physical_button = BTN_RF15, .activates = BTN_RF7 },
                 ButtonRemap { .physical_button = BTN_RF5,  .activates = BTN_RF8 },
                 // Left hand row
-                ButtonRemap { .physical_button = BTN_LF8,  .activates = BTN_LF1 },
+                ButtonRemap { .physical_button = BTN_LF6,  .activates = BTN_LF1 },
                 ButtonRemap { .physical_button = BTN_LF7,  .activates = BTN_LF2 },
-                ButtonRemap { .physical_button = BTN_LF6,  .activates = BTN_LF3 },
+                ButtonRemap { .physical_button = BTN_LF8,  .activates = BTN_LF3 },
                 // Up button
                 ButtonRemap { .physical_button = BTN_LT6,  .activates = BTN_LT1 },
                 // Menu buttons
@@ -102,7 +109,7 @@ const Config default_config = {
                 ButtonRemap { .physical_button = BTN_RF16, .activates = BTN_RF9 },
                 
                 // Unmap the old buttons
-                ButtonRemap { .physical_button = BTN_RF9, .activates = BTN_UNSPECIFIED },
+                ButtonRemap { .physical_button = BTN_RF9,  .activates = BTN_UNSPECIFIED },
                 ButtonRemap { .physical_button = BTN_RF2,  .activates = BTN_UNSPECIFIED },
                 ButtonRemap { .physical_button = BTN_RF3,  .activates = BTN_UNSPECIFIED },
                 ButtonRemap { .physical_button = BTN_RF4,  .activates = BTN_UNSPECIFIED },
